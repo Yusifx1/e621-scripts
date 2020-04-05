@@ -1,4 +1,4 @@
-count=001
+count=1
 echo "Specify the ID of the pool you would like to download"
 read pid
 bid=`curl -# -A "MyProject/1.0 (new api is shit)" "https://e621.net/pools/$pid.json" | jq -c '.post_ids'`
