@@ -1,7 +1,8 @@
 # e621-scripts
 Pool, set, tag and etc downloaders for e621
 
-Don't blame me pls. It's my first script ever and I learned all this in one day. I writed it with phone on notebook and tested on termux. That's mean this must wornk on Android. Reason of this new api of site and  
+Don't blame me pls. It's my first script ever and I learned all this in one day. I writed it with phone on notebook and tested on termux. That's mean this must wornk on Android. Reason of writing this new api of site and only Android system usage. 
+
 
 # USAGE
 
@@ -32,3 +33,7 @@ Add progressbar instead curl progress meter (-# not work correct).
 Add function to use both: name and id.
 
 Collect all script to one. 
+
+# FURURE PLANS
+
+Make js (usescript) with this functions with one click. 
