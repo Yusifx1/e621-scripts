@@ -1,10 +1,13 @@
 # e621-scripts
 downloaders for e621
 
-Usage
+#USAGE
+
+jq needed
+
 bash "script which you want"
 
-Description
+#DESCRIPTION
 
 Poolbyid - work litle bit slow but this is best for pool where you need order (this dependent by pool ordering).
  
