@@ -24,13 +24,15 @@ Poolbytag - fast method sorted by id of post (upload date).
 
 For sets:
 
-Set - downloads sets by id with renaming (oldest upload first). 
+Set - downloads sets by id with renaming (oldest upload first). Limit of e621 is 320 post. 
 
-Setwc - faster download sets with source name. 
+Setwc -  download sets with source name. 
 
 # TO-DO
 
 Add download directory. (In progress) 
+
+Pass e621/e926 limitation. 
 
 Add progressbar instead curl progress meter (-# not work correct). 
 
@@ -38,6 +40,6 @@ Add function to use both: name and id.
 
 Collect all script to one. 
 
-# FURURE PLANS
+# FUTURE PLANS
 
 Make js (usescript) with this functions with one click. 
