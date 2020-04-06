@@ -17,6 +17,6 @@ e=webm
 else 
 echo Corrupted link!!!
 fi
-curl -o "${pid}/${count}.${e}" -C - $l
+curl --create-dirs -o "${pid}/${count}.${e}" -C - $l
 count=$((count+1))
 done <url
