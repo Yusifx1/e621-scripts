@@ -17,6 +17,6 @@ e=webm
 else 
 echo Corrupted link!!!
 fi
-curl -o "${count}.${e}" $l
+curl -o "${count}.${e}" -C - $l
 count=$((count+1))
 done <url
