@@ -1,9 +1,9 @@
 # e621-scripts
 Pool, set, tag and etc downloaders for e621
 
-Basic script that use curl jq. Work with wget to but i planned for android download less. If you want i can write instruction or script. 
+Basic script that use curl and jq. Work with wget to but i planned for android download less. If you want i can write instruction or script. 
 
-Don't blame me pls. It's my first script ever and I learned all this in one day. I writed it with phone on text editor and tested on termux. That's mean this must wornk on Android. Reason of writing this new api of site and only Android system usage. 
+Don't blame me pls. It's my first script ever. I writed it with phone on text editor and tested on termux. That's mean this must work on Android. Reason of writing this new api of site and only Android system usage. 
 
 
 # USAGE
@@ -30,9 +30,7 @@ Setwc -  download sets with source name.
 
 # TO-DO
 
-Add download directory. (In progress) 
-
-Pass e621/e926 limitation. 
+Pass e621/e926 limitation. (In progress.) 
 
 Add progressbar instead curl progress meter (-# not work correct). 
 
