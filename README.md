@@ -26,8 +26,6 @@ Set - (sc=on) downloads set posts by id with renaming (oldest upload first). sc=
 
 # TO-DO
 
-Pass e621/e926 limitation. (In progress.) 
-
 Add progressbar instead curl progress meter (-# not work correct). 
 
 Add function to use both: name and id.
