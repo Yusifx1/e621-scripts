@@ -24,7 +24,9 @@ For sets:
 
 Set - (sc=on) downloads set posts by id with renaming (oldest upload first). sc=no download sets with source name. 
 
-# TO-DO
+# TO-DO (Thanks to savageorange from e621 for help) 
+
+Fix problems listed by savageorange. (İn progress) 
 
 Add progressbar instead curl progress meter (-# not work correct). 
 
