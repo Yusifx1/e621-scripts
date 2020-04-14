@@ -2,6 +2,7 @@ log=login= # Your e621 login
 api=api_key= # Your e621 api key
 sc=no #download with renaming or no. Not recommended for updating set
 
+sc=$2
 count=1
 trap "rm url" EXIT
 name=`curl -# -A "e621downloader/1.5 (Yusifx1/e621-scripts)" "https://e621.net/post_sets/$1.json" | jq -r '.name'`
