@@ -18,7 +18,7 @@ Then type id/shortname for set or tags
 
 For command line usage (new seperate scripts and e621downloader-cl only):
 
-bash "script" if you want change parametrs add "yes/no" 
+bash "script" "id/shortname or tags" if you want change parametrs add "yes/no" 
 
 # Examples
 
