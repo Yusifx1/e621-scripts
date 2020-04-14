@@ -24,7 +24,7 @@ bash "script" "id/shortname or tags" if you want change parametrs add "yes/no"
 
 bash pool.sh 19197 yes - this download pool 19197 with dwo mode on (dwo=yes). (NSFW) In this comic you should turn dwo to yes if you want rename with pool order.
 
-bash set.sh envseries - this download set shornamed envseries (id is 20313) with default mode (sc=no) 
+bash set.sh envseries - this download set shortnamed "envseries" (id is 20313) with default mode (sc=no) 
 
 bash tagdownloader.sh furry+hat+-dragon+cute dump=no - this will download posts with furry, hat, cute and without dragon tags. 
 
