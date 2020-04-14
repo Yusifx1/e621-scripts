@@ -1,4 +1,4 @@
-dump=yes #yes for dump url to txt or no for downloading
+dump=no #yes for dump url to txt or no for downloading
 log=login= # Your e621 login
 api=api_key= # Your e621 api key
 
