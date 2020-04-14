@@ -22,7 +22,7 @@ bash "script" if you want change parametrs add "yes/no"
 
 # Examples
 
-bash pool.sh 19197 yes - this download pool 19197 with dwo mode on (dwo=yes). 
+bash pool.sh 19197 yes - this download pool 19197 with dwo mode on (dwo=yes). (NSFW) In this comic you should turn dwo to yes if you want rename with pool order.
 
 bash set.sh envseries - this download set shornamed envseries (id is 20313) with default mode (sc=no) 
 
@@ -54,7 +54,6 @@ api=api_key=dvgdgd... # Your e621 api key. No my api key not start with dvgdgd i
 
 # DESCRIPTION
 Now all in one. Run script select what you want download by number. Then type id/shortname for set or tags. 
-
 
 Changed separate scripts. Now it work like this:
 
