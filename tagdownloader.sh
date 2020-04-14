@@ -2,6 +2,7 @@ dump=yes #yes for dump url to txt or no for downloading
 log=login= # Your e621 login
 api=api_key= # Your e621 api key
 
+dump=$2
 p=1
 trap "rm $1" EXIT
 lc=320
