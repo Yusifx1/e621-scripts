@@ -1,6 +1,6 @@
 log=login= # Your e621 login
 api=api_key= # Your e621 api key
-sc=yes
+sc=no #download with renaming or no. Not recommended for updating set
 
 count=1
 trap "rm url" EXIT
