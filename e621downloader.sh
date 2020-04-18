@@ -1,7 +1,8 @@
 log=login= # Your e621 login
 api=api_key= # Your e621 api key
+dump=both #dump/download/both for only dump url to txt/only download/both
 #for set
-sc=no #download with renaming or no. Not recomended if set updating or not finish ever
+sc=no #download with renaming or no. Not recomended if set not with order
 #for pool
 dwo=no #change if you have problem with ordering
 count=1 #from what number start renaming
@@ -17,17 +18,17 @@ if [[ $number = 1 ]]; then
 echo "Specify the ID of the pool you would like to download"
 read id
 trap "rm $id.url" EXIT
-name=`curl -A "e621downloader/1.5 (Yusifx1/e621-scripts)" "https://e621.net/pools/$id.json" | jq -r '.name'`
+name=`curl -A "e621downloader/1.6 (Yusifx1/e621-scripts)" "https://e621.net/pools/$id.json" | jq -r '.name'`
 dir=$name 
-pid=`curl -# -A "e621downloader/1.5 (Yusifx1/e621-scripts)" "https://e621.net/pools/$id.json" | jq -c '.post_ids'`
+pid=`curl -# -A "e621downloader/1.6 (Yusifx1/e621-scripts)" "https://e621.net/pools/$id.json" | jq -c '.post_ids'`
 pid=`echo ${pid:1:-1}`
 echo "Downloading to $dir" 
 if [[ $dwo = yes ]]; then
-curl -s -A "e621downloader/1.5 (Yusifx1/e621-scripts)" "https://e621.net/posts/{$pid}.json?$log&$api" | jq -r '.post.file.url' |sed "/null/d"  >$id.url
+curl -s -A "e621downloader/1.6 (Yusifx1/e621-scripts)" "https://e621.net/posts/{$pid}.json?$log&$api" | jq -r '.post.file.url' |sed "/null/d"  >$id.url
 else
 while [ $lc = 320 ] 
 do
-curl -s -A "e621-downloader/1.5 (Yusifx1/e621-scripts)"  "https://e621.net/posts.json?tags=pool%3A$id+order%3Aid&$log&$api&limit=320&page=$p" |jq -r '.posts[]|.file.url' >>$id.url
+curl -s -A "e621-downloader/1.6 (Yusifx1/e621-scripts)"  "https://e621.net/posts.json?tags=pool%3A$id+order%3Aid&$log&$api&limit=320&page=$p" |jq -r '.posts[]|.file.url' >>$id.url
 l=`wc -l $id.url | cut -f1 -d' '`
 lc=`echo $((l/p))`
 p=$((p+1))
@@ -38,12 +39,12 @@ elif [[ $number = 2 ]]; then
 echo "Specify the id or shortname of the set you would like to download"
 read id
 trap "rm $id.url" EXIT
-name=`curl -# -A "e621downloader/1.5 (Yusifx1/e621-scripts)" "https://e621.net/post_sets/$id.json" | jq -r '.name'`
+name=`curl -# -A "e621downloader/1.6 (Yusifx1/e621-scripts)" "https://e621.net/post_sets/$id.json" | jq -r '.name'`
 echo "Getting url of $name set" 
 dir=$name 
 while [ $lc = 320 ] 
 do
-curl -s -A "e621-downloader/1.5 (Yusifx1/e621-scripts)"  "https://e621.net/posts.json?tags=set%3A$id+order%3Aid&limit=320&$log&$api&page=$p" |jq -r '.posts[]|.file.url' >>$id.url
+curl -s -A "e621-downloader/1.6 (Yusifx1/e621-scripts)"  "https://e621.net/posts.json?tags=set%3A$id+order%3Aid&limit=320&$log&$api&page=$p" |jq -r '.posts[]|.file.url' >>$id.url
 l=`wc -l $id.url | cut -f1 -d' '`
 lc=`echo $((l/p))`
 p=$((p+1))
@@ -55,7 +56,7 @@ read id
 trap "rm $id.url" EXIT
 while [ $lc = 320 ] 
 do
-curl -s -A "e621-downloader/1.5 (Yusifx1/e621-scripts)"  "https://e621.net/posts.json?tags=$id&limit=320&$log&$api&page=$p" |jq -r '.posts[]|.file.url' >>$id.url
+curl -s -A "e621-downloader/1.6 (Yusifx1/e621-scripts)"  "https://e621.net/posts.json?tags=$id&limit=320&$log&$api&page=$p" |jq -r '.posts[]|.file.url' >>$id.url
 l=`wc -l $id.url | cut -f1 -d' '`
 lc=$((l/p))
 p=$((p+1))
@@ -70,7 +71,10 @@ else
 for url in $(cat $id.url) ; do ln=$(basename $url) ; curl --create-dirs -o "$name/$ln" $url -C - ; done
 fi
 fi
-
+if [ $dump = dump ] || [ $dump = both]; then
+cp "$id.url" "$name.url.txt" 
+fi
+if [ $dump = download ] || [ $dump = both]; then
 if [ $number = 2 -a $sc = no ]; then
 for url in $(cat $id.url ) ; do ln=$(basename $url) ; curl --create-dirs -o "$name/$ln" $url ; done
 elif ! [ $number = 3 ]; then
@@ -80,4 +84,5 @@ e=$(if [[ $l =~ ^.*[.](gif|jpg|png|webm) ]] ;then echo "${l##*.}"; else echo "Co
 curl --create-dirs -o "$dir/${count}.$e" -C - $l
 count=$((count+1))
 done <$id.url
+fi
 fi

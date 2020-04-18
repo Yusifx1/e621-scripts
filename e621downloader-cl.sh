@@ -1,13 +1,18 @@
-log=login= # Your e621 login
+log=login= log=login= # Your e621 login
 api=api_key= # Your e621 api key
-dump=no #dump tag url list to txt or download
+dump=download #dump tag url list to txt or download
 sc=no #download with renaming or no. Not recomended if set updating or not finish ever
 dwo=no #change if you have problem with ordering
 count=1 #from what number start renaming
 
+
+if [[ -n $4 ]]; then
+sc=$4
+dwo=$4
+fi
+if [[ -n $3 ]]; then
 dump=$3
-sc=$3
-dwo=$3
+fi
 p=1
 lc=320
 if [[ $1 = pool ]]; then
@@ -52,13 +57,17 @@ lc=$((l/p))
 p=$((p+1))
 done
 name=$(echo "$2" | sed 's/+/ /g' ) 
-if [ $dump = yes ]; then
-cp "$2.url" "$name.txt" 
-else
+if [ $dump = dump ] || [ $dump = both ]; then
+cp "$2.url" "$name.url.txt" 
+fi
+if [ $dump = download ] || [ $dump = both ]; then
 for url in $(cat $2.url) ; do ln=$(basename $url) ; curl --create-dirs -o "$name/$ln" $url -C - ; done
 fi
 fi
-
+if [ $dump = dump ] || [ $dump = both ]; then
+cp "$2.url" "$name.url.txt" 
+fi
+if [ $dump = download ] || [ $dump = both ]; then
 if [[ $1 = set ]] && [[ $sc = no ]]; then
 for url in $(cat $2.url ) ; do ln=$(basename $url) ; curl --create-dirs -o "$name/$ln" $url -C - ; done
 elif ! [ $1 = tag ]; then
@@ -68,4 +77,5 @@ e=$(if [[ $l =~ ^.*[.](gif|jpg|png|webm) ]] ;then echo "${l##*.}"; else echo "Co
 curl --create-dirs -o "$dir/${count}.$e" -C - $l
 count=$((count+1))
 done <$2.url
+fi
 fi
