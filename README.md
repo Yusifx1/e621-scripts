@@ -18,20 +18,22 @@ Then type id/shortname for set or tags
 
 For command line usage (new seperate scripts and e621downloader-cl only):
 
-bash "script" "id/shortname or tags" if you want change parametrs add "yes/no" 
+bash "script" "id/shortname or tags" if you want change parametrs add "download parametrs dump/download/both" and "yes/no" 
 
 # Examples
 
-bash pool.sh 19197 yes - this download pool 19197 with dwo mode on (dwo=yes). (NSFW) In this comic you should turn dwo to yes if you want rename with pool order.
+bash pool.sh 19197 download yes - this download pool 19197 with dwo mode on (dwo=yes). (NSFW) In this comic you should turn dwo to yes if you want rename with pool order.
 
-bash set.sh envseries - this download set shortnamed "envseries" (id is 20313) with default mode (sc=no) 
+bash set.sh envseries both - this download set shortnamed "envseries" (id is 20313) with default mode (sc=no) and dump url to txt
 
-bash tagdownloader.sh furry+hat+-dragon+cute dump=no - this will download posts with furry, hat, cute and without dragon tags. 
+bash tagdownloader.sh furry+hat+-dragon+cute dump - this will only dump posts url with furry, hat, cute and without dragon tags to txt. 
 
 +add tag
 -exclude added tag
 
 # Parametrs
+
+dump - three mode:dump-dump link with order to txt, download-only download, both-dump link and download. 
 
 For pools:
 
@@ -41,10 +43,7 @@ For sets:
 
 sc=on downloads set posts by id with renaming (oldest upload first). sc=no download sets with source name. Default value - no
 
-For tag downloader:
-dump=yes dump all link to txt for downloading with another downloader or dump=no download with curl
-
-You can change this settings permamently in script first lines. 
+You can change this settings default value permamently in script first lines. 
 
 # Writing login and API key
 
@@ -60,6 +59,8 @@ Changed separate scripts. Now it work like this:
 bash "script name" "poolid or set id/shortname or tags" 
 
 Old selective scripts will be in old scripts folder. 
+
+Dump link work with order. That's mean you can dump pool and then download with pool order. 
 
 # TO-DO (Thanks to savageorange from e621 for help) 
 
