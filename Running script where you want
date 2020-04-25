@@ -1,0 +1,24 @@
+If you want use script like this
+
+e621downloader-cl pool 19111
+
+Follow this steps:
+
+1) Download script
+
+2) Star my script in github
+
+3) Configure script parametr that you want use where you want. 
+
+4) Now you need copy or move file to bash/bin folder. On android Termux app (don't forget give storage permission "termux-setup-storage") when you launch you type "cd .." to go up directory. Then "cp home/storage/path/to/your/script usr/bin/"name that will run script like" e621" or "e621downloader-cl.sh".
+
+If you followed all step you can go path what you want like "cd storage/shared" (main internal storage of android) and run script like this
+
+$e621 https://e621.net/posts_sets/26089 dump
+
+$yiffdownloader pool 19353 both yes
+
+Also you can edit default parametrs with termux text editor like nano. Just go to usr/bin and edit your script. Or make listed steps again. 
+
+
+
