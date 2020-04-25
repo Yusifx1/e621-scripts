@@ -1,7 +1,8 @@
 # e621-scripts
+
 Pool, set, tag and etc downloaders for e621
 
-Basic script that use curl and jq. Work with wget to but i planned for android download less. If you want i can write instruction or script. Now with all in one and removed direction variable selection because it was useless. You can change it in code if you want select directory. Change dir=$"where you want" or $id typed by id begining of script. Also removed base.cfg. Now you should write varibles in main script (allinone.sh)
+Basic script that use curl and jq. If you want you can wget url list. Removed direction variable selection because it was useless. You can change it in code if you want select directory. Change dir=$"where you want" or $id typed by id begining of script. Also removed base.cfg. Now you should write varibles in main script (allinone.sh)
 
 Don't blame me pls. It's my first script ever. I writed it with phone on text editor and tested on termux. That's mean this must work on Android. Reason of writing this new api of site and only Android system usage. 
 
@@ -18,13 +19,15 @@ Then type id/shortname for set or tags
 
 For command line usage (new seperate scripts and e621downloader-cl only):
 
-bash "script" "id/shortname or tags" if you want change parametrs add "download parametrs dump/download/both" and "yes/no" 
+bash "script" "id/shortname or tags or e621 url" if you want change parametrs add "download parametrs dump/download/both" and "yes/no" 
 
 # Examples
 
 bash pool.sh 19197 download yes - this download pool 19197 with dwo mode on (dwo=yes). (NSFW) In this comic you should turn dwo to yes if you want rename with pool order.
 
 bash set.sh envseries both - this download set shortnamed "envseries" (id is 20313) with default mode (sc=no) and dump url to txt
+
+bash e621downloader-cl https://e621.net/post_sets/20313 - this will download set 20313 (envseries) 
 
 bash tagdownloader.sh furry+hat+-dragon+cute dump - this will only dump posts url with furry, hat, cute and without dragon tags to txt. 
 
@@ -64,12 +67,9 @@ Dump link work with order. That's mean you can dump pool and then download with 
 
 # TO-DO (Thanks to savageorange from e621 for help) 
 
-Fix problems listed by savageorange. (İn progress) 
-
 Add progressbar instead curl progress meter (-# not work correct). 
 
-Add function to use both: name and id.
-
+Do something (make some improvement). Request your wish in this link e621:https://e621.net/forum_topics/26089
 
 # FUTURE PLANS
 
