@@ -21,7 +21,7 @@ For command line usage (new seperate scripts and e621downloader-cl only):
 
 bash "script" "id/shortname or tags or e621 url" if you want change parametrs add "download parametrs dump/download/both" and "yes/no" 
 
-If you want run script where you want read installing to root. 
+If you want run script where you want like "$yiffdownload pool 1" read "Running script where you want" . 
 
 # Examples
 
