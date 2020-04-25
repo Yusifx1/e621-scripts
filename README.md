@@ -21,6 +21,8 @@ For command line usage (new seperate scripts and e621downloader-cl only):
 
 bash "script" "id/shortname or tags or e621 url" if you want change parametrs add "download parametrs dump/download/both" and "yes/no" 
 
+If you want run script where you want read installing to root. 
+
 # Examples
 
 bash pool.sh 19197 download yes - this download pool 19197 with dwo mode on (dwo=yes). (NSFW) In this comic you should turn dwo to yes if you want rename with pool order.
