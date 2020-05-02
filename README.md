@@ -1,3 +1,4 @@
+Sorry I am bussy for last days. I will contine if I get time.
 # e621-scripts
 
 Pool, set, tag and etc downloaders for e621
@@ -75,5 +76,4 @@ Do something (make some improvement). Request your wish in this link e621:https:
 
 # FUTURE PLANS
 
-Make js (usescript) with this functions with one click. 
-Started learning javascript with firefox (I know that chrome better but mobile firefox have extension support with tampermonkey/greasemonkey addon) 
+Finally I created my JavaScript project. Future plans now there.
