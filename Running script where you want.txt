@@ -1,6 +1,6 @@
-If you want use script like this
+If you want use script like this from any directory
 
-e621downloader-cl pool 19111
+e621downloader pool 19111
 
 Follow this steps:
 
@@ -8,11 +8,9 @@ Follow this steps:
 
 2) Star and wath my script in github
 
-3) Configure script parametr that you want use where you want. 
+3) Now you need copy or move file to bash/bin folder. On android Termux app (don't forget give storage permission "termux-setup-storage") when you launch you type "cd .." to go up directory. Then "cp home/storage/path/to/your/script usr/bin/"name that will run script like: e621, yiff-time, e621downloader and etc."
 
-4) Now you need copy or move file to bash/bin folder. On android Termux app (don't forget give storage permission "termux-setup-storage") when you launch you type "cd .." to go up directory. Then "cp home/storage/path/to/your/script usr/bin/"name that will run script like" e621" or "e621downloader-cl.sh".
-
-5) Give running access with chmod +x usr/bin/"your script"
+4) Give running access with chmod +x usr/bin/"your script"
 
 If you followed all step you can go path what you want like "cd storage/shared" (main internal storage of android) and run script like this
 
