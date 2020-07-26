@@ -101,11 +101,10 @@ echo
 echo 
 echo
 if [ $dump != download ]; then
-cp "$id.url" "$name.url.txt" 
+mkdir -p "$name" && cp "$id.url" "$name.url.txt" 
 fi
 if [ $dump != dump ]; then
 if [[ $number = 3 ]] || [[ $sc = no && $number = 2 ]]; then
-echo 1
 for url in $(cat $id.url) ; do ln=$(basename $url) ; echo -e "\e[2ADownloading #$count of $length" && curl -# --create-dirs -o "$name/$ln" $url -C - ; count=$((count+1)); done
 else
  while read l
