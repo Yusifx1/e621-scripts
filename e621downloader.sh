@@ -1,8 +1,8 @@
 
 dump=both #dump/download/both for only dump url to txt/only download/both
-count=1 #from what number start renaming.
+count=1   #from what number start renaming.
 #for set
-sc=yes #download with renaming or no.
+sc=yes    #download with renaming or no.
 
 
 
@@ -15,7 +15,7 @@ fi
 
 echo "$1rr$2rr$3"
 
-trap 'rm $id.md5 $id.url' EXIT
+trap 'rm -f $id.md5 $id.url' EXIT
 
 if [[ -n $4 ]]; then
 sc=$4
