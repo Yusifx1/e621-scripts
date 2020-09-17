@@ -13,9 +13,7 @@ bp=$(echo "$1" | grep -o "/pools[^ ]*\|sets[^ ]*\|tags[^ ]*" | sed "s|[/=]| |g" 
 set $bp $2 $3
 fi
 
-echo "$1rr$2rr$3"
-
-trap 'rm -f $id.md5 $id.url' EXIT
+trap 'rm -f $id.md5 tmp $id.md $id.url' EXIT
 
 if [[ -n $4 ]]; then
 sc=$4
@@ -42,7 +40,7 @@ else
 echo "Specify the ID of the pool"
 read id 
 fi
-json=$(curl -s -A "e621downloader/1.7 (Yusifx1/e621-scripts)" "https://e621.net/pools/$id.json") 
+json=$(curl -s -A "e621downloader/1.9 (Yusifx1/e621-scripts)" "https://e621.net/pools/$id.json") 
 name=$(echo $json | jq -r '.name')
 id="pool%3A$id"
 
@@ -52,7 +50,7 @@ else
 echo "Specify the id or shortname of the set you would like to download"
 read id
 fi
-json=$(curl -s -A "e621downloader/1.7 (Yusifx1/e621-scripts)" "https://e621.net/post_sets/$id.json") 
+json=$(curl -s -A "e621downloader/1.9 (Yusifx1/e621-scripts)" "https://e621.net/post_sets/$id.json") 
 id="set%3A$id"
 name=$(echo $json | jq -r '.name')
 
@@ -77,31 +75,31 @@ echo
 while [ $lc = 320 ] 
 do
 echo -e "\e[1AGetting page $p"
-pagejson+=$(curl -s -A "e621-downloader/1.7 (Yusifx1/e621-scripts)"  "https://e621.net/posts.json?tags=$id&limit=320&page=$p" |jq -r '.posts[]')
+pagejson+=$(curl -s -A "e621-downloader/1.9 (Yusifx1/e621-scripts)"  "https://e621.net/posts.json?tags=$id&limit=320&page=$p" |jq -r '.posts[]')
 pc=$(echo $pagejson|jq '.id' | wc -l)
 lc=$((pc/p))
 ((p++))
 done
 
-for pid in $(echo $pids)
+echo $pagejson | jq '{id: .id, md5: .file.md5,ext: .file.ext}'>>tmp
+echo "Extracting urls ... This may take a few minutes"
+for pid in $pids
 do
-echo $pagejson|jq -r 'select(.id=='$pid')|.file | "\(.md5).\(.ext)"'>>$id.md5
+jq -r 'select(.id=='$pid')|"\(.md5).\(.ext)"'<tmp >>$id.md5
 done
 
+cut --output-delimiter='/' -c 1-2,3-4 $id.md5>>$id.md
 
-while read md5
+while read md5 && read md <&3
 do 
-m2=$(echo $md5|cut -c 1-2)
-m4=$(echo $md5|cut -c 3-4)
-echo "https://static1.e621.net/data/$m2/$m4/$md5">>$id.url
-done<$id.md5
-echo "Downloading $name"
+echo "https://static1.e621.net/data/$md/$md5">>$id.url
+done<$id.md5 3<$id.md
 length=$(wc -l <$id.url)
 echo 
 echo 
 echo
 if [ $dump != download ]; then
-mkdir -p "$name" && cp "$id.url" "$name.url.txt" 
+cp "$id.url" "$name.url.txt" 
 fi
 if [ $dump != dump ]; then
 if [[ $number = 3 ]] || [[ $sc = no && $number = 2 ]]; then
