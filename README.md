@@ -40,29 +40,6 @@ bash e621downloader.sh furry+hat+-dragon+cute dump - this will only dump posts u
 
 # Parametrs
 
-First paramett - three mode:
-dump-dump link with order to txt, 
-download-only download, 
-both-dump link and download. 
-
-For sets:
-Second parametr
-sc=on downloads set posts by id with renaming (ordered by creator). sc=no download sets with source name. Default value - no
-
-You can change this settings default value permamently in script first lines. 
-
-# DESCRIPTION
-Now all in one. 
-
-Changed separate scripts. Now it work like this:
-
-bash "script name" "poolid or set id/shortname or tags" 
-
-Old selective scripts will be in old scripts folder. 
-
-Dump link work with order. That's mean you can dump pool and then download with pool order. 
-
-I can say this script fully finished. If you find issue or it won't download anything please tell me. I will publish fix as fast as possible.
 
 # FUTURE PLANS
 
