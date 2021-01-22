@@ -38,8 +38,19 @@ bash e621downloader.sh furry+hat+-dragon+cute dump - this will only dump posts u
 +add tag
 -exclude added tag
 
-# Parametrs
+# Options
 
+  -h,  --help     display help and exit.
+  -H, --host      define host to scrape url from (e621.net or e926.net)
+  -p, --directory-prefix      directory prefix
+  -s, --order      order of scraping. For more info
+  --post-limit      count of post on each e621/e926 page (max and default value 320)
+  --page-limit      pages to scrape (max and default value 1-750)
+ 
+Arguments:
+  some url      script will parse url of e621/e926
+  dump/download/both      for only dump url to txt/only download/both
+  pool/set/tags      what will being scraped
 
 # FUTURE PLANS
 
